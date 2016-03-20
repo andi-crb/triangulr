@@ -9,7 +9,11 @@ export default React.createClass({
 
   getInitialState: function () {
     return {
-      one: []
+      one: [],
+      two: [],
+      three: [],
+      four: [],
+      five: []
     }
 
   },
@@ -61,24 +65,111 @@ export default React.createClass({
     rowtwo.push(one[1].taskName, two[0].taskName)
     rowthree.push(one[2].taskName, two[1].taskName, three[0].taskName)
     rowfour.push(one[3].taskName, two[2].taskName, three[1].taskName, four[0].taskName)
-    rowfive.push(one[4].taskName, two[3].taskName, three[2].taskName, two[1].taskName, five[0].taskName)
+    rowfive.push(one[4].taskName, two[3].taskName, three[2].taskName, four[1].taskName, five[0].taskName)
 
 
-    this.setState({one: "hello this is one"});
+    this.setState({one: rowone, two: rowtwo, three: rowthree, four: rowfour, five: rowfive});
     console.log("one", one)
     console.log("rowfive", rowfive)
+  },
+
+  handleDoneOne: function (e) {
+    var ones = this.state.one
+    var done = e.target.value
+    var index = ones.indexOf(done)
+    ones[index] = "DONE" 
+    this.setState({one: ones})
+
+  },
+
+  handleDoneTwo: function (e) {
+    var twos = this.state.two
+    var done = e.target.value
+    var index = twos.indexOf(done)
+    twos[index] = "DONE" 
+    this.setState({two: twos})
+
+  },
+
+
+  handleDoneThree: function (e) {
+    var fives = this.state.five
+    var done = e.target.value
+    var index = fives.indexOf(done)
+    fives[index] = "DONE" 
+    this.setState({five: fives})
+
+  },
+
+
+  handleDoneFour: function (e) {
+    var fives = this.state.five
+    var done = e.target.value
+    var index = fives.indexOf(done)
+    fives[index] = "DONE" 
+    this.setState({five: fives})
+
+  },
+
+
+  handleDoneFive: function (e) {
+    var fives = this.state.five
+    var done = e.target.value
+    console.log(fives, done)
+    var index = fives.indexOf(done)
+    fives[index] = "DONE" 
+    this.setState({five: fives})
+
   },
 
 
 
   render: function () {
+    var ones = this.state.one
+    var onesList = ones.map(function(one){
+      return <span className={"priority"+ones.indexOf(one).toString()}><input type="submit" value={one} onClick={this.handleDoneOne} /></span>;
+    }.bind(this))
+    var twos = this.state.two
+    var twosList = twos.map(function(two){
+      return <span className={"priority"+twos.indexOf(two).toString()}><input type="submit" value={two} onClick={this.handleDoneTwo} /></span>;
+    }.bind(this))
+
+    var threes = this.state.three
+    var threesList = threes.map(function(three){
+      return <span className={"priority"+threes.indexOf(three).toString()}><input type="submit" value={three} onClick={this.handleDoneThree} /></span>;
+    }.bind(this))
+
+    var fours = this.state.four
+    var foursList = fours.map(function(four){
+      return <span className={"priority"+fours.indexOf(four).toString()}><input type="submit" value={four} onClick={this.handleDoneFour} /></span>;
+    }.bind(this))
+
+    var fives = this.state.five
+    var fivesList = fives.map(function(five){
+      return <span className={"priority"+fives.indexOf(five).toString()}><input type="submit" value={five}  onClick={this.handleDoneFive} /></span>;
+    }.bind(this))
 
 
     return (
 
+
       <div className="Build">
       <input type="Submit" value="Build" onClick = {this.handleChange} />
-      <p>{this.state.one}</p>
+        <div className="Ones">
+          <p>{onesList}</p>
+        </div>        
+        <div className="Ones">
+          <p>{twosList}</p>
+        </div>        
+        <div className="Ones">
+          <p>{threesList}</p>
+        </div>        
+        <div className="Ones">
+          <p>{foursList}</p>
+        </div>        
+        <div className="Ones">
+          <p>{fivesList}</p>
+        </div>
       </div>
       )
   }

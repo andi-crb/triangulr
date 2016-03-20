@@ -1,3 +1,27 @@
 h1 {
   text-align: center;
 }
+
+.Build {
+  text-align: center;
+}
+
+.priority0 {
+  background-color: red;
+}
+
+.priority1 {
+  background-color: orange;
+}
+
+.priority2 {
+  background-color: yellow;
+}
+
+.priority3 {
+  background-color: green;
+}
+
+.priority4 {
+  background-color: blue;
+}

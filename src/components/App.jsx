@@ -10,7 +10,7 @@ import Build from './Build.jsx'
 
 export default React.createClass({
 
-    getInitialState: function () {
+  getInitialState: function () {
     return {
       itemsList: {}
     }
@@ -24,12 +24,21 @@ export default React.createClass({
   render() {
     return(
 
-<div id='app'>
-
-    <Header />
-    <Form myFunc={this.handleChildFunc.bind(this)} />
-    <Build itemsList = {this.state.itemsList} />
-</div>)
+      <div id='app'>
+        <div class="row">
+          <div class="twelve columns">
+            <Header />
+          </div>
+        </div>
+        <div class="row">
+          <div class="ten columns">
+            <Build itemsList = {this.state.itemsList} />
+          </div>
+          <div class="two columns">
+            <Form myFunc={this.handleChildFunc.bind(this)} />
+          </div>
+        </div>
+      </div>)
 
   }
 })
