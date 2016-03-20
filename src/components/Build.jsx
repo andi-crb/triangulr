@@ -93,21 +93,23 @@ export default React.createClass({
 
 
   handleDoneThree: function (e) {
-    var fives = this.state.five
+    var threes = this.state.three
     var done = e.target.value
-    var index = fives.indexOf(done)
-    fives[index] = "DONE" 
-    this.setState({five: fives})
+    var index = threes.indexOf(done)
+        console.log(threes, done, index)
+    threes[index] = "DONE" 
+    this.setState({three: threes})
 
   },
 
 
   handleDoneFour: function (e) {
-    var fives = this.state.five
+    var fours = this.state.four
     var done = e.target.value
-    var index = fives.indexOf(done)
-    fives[index] = "DONE" 
-    this.setState({five: fives})
+    var index = fours.indexOf(done)
+    console.log(fours, done, index)
+    fours[index] = "DONE" 
+    this.setState({four: fours})
 
   },
 
@@ -127,26 +129,26 @@ export default React.createClass({
   render: function () {
     var ones = this.state.one
     var onesList = ones.map(function(one){
-      return <span className={"priority"+ones.indexOf(one).toString()}><input type="submit" value={one} onClick={this.handleDoneOne} /></span>;
+      return <span className={"priority"+ones.indexOf(one).toString()} id={one}><input type="submit" value={one} onClick={this.handleDoneOne} /></span>;
     }.bind(this))
     var twos = this.state.two
     var twosList = twos.map(function(two){
-      return <span className={"priority"+twos.indexOf(two).toString()}><input type="submit" value={two} onClick={this.handleDoneTwo} /></span>;
+      return <span className={"priority"+twos.indexOf(two).toString()} id={two}><input type="submit" value={two} onClick={this.handleDoneTwo} /></span>;
     }.bind(this))
 
     var threes = this.state.three
     var threesList = threes.map(function(three){
-      return <span className={"priority"+threes.indexOf(three).toString()}><input type="submit" value={three} onClick={this.handleDoneThree} /></span>;
+      return <span className={"priority"+threes.indexOf(three).toString()} id={three}><input type="submit" value={three} onClick={this.handleDoneThree} /></span>;
     }.bind(this))
 
     var fours = this.state.four
     var foursList = fours.map(function(four){
-      return <span className={"priority"+fours.indexOf(four).toString()}><input type="submit" value={four} onClick={this.handleDoneFour} /></span>;
+      return <span className={"priority"+fours.indexOf(four).toString()} id={four}><input type="submit" value={four} onClick={this.handleDoneFour} /></span>;
     }.bind(this))
 
     var fives = this.state.five
     var fivesList = fives.map(function(five){
-      return <span className={"priority"+fives.indexOf(five).toString()}><input type="submit" value={five}  onClick={this.handleDoneFive} /></span>;
+      return <span className={"priority"+fives.indexOf(five).toString()} id={five}><input type="submit" value={five}  onClick={this.handleDoneFive} /></span>;
     }.bind(this))
 
 
