@@ -44,7 +44,7 @@ export default React.createClass({
       <div className="Form">
           <input type="text" onChange = {this.handleChange} /><br />
           <input type="text" onChange = {this.handlePriority} /><br />
-          <input type="Submit" onClick = {this.handleSubmit} /><br />
+          <input type="Submit" className="regular"  onClick = {this.handleSubmit} /><br />
       </div>
       )
   }

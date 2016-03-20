@@ -129,26 +129,26 @@ export default React.createClass({
   render: function () {
     var ones = this.state.one
     var onesList = ones.map(function(one){
-      return <span className={"priority"+ones.indexOf(one).toString()} id={one}><input type="submit" value={one} onClick={this.handleDoneOne} /></span>;
+      return <span  ><input type="submit" id={one} value={one} className={"priority"+ones.indexOf(one).toString()} onClick={this.handleDoneOne} /></span>;
     }.bind(this))
     var twos = this.state.two
     var twosList = twos.map(function(two){
-      return <span className={"priority"+twos.indexOf(two).toString()} id={two}><input type="submit" value={two} onClick={this.handleDoneTwo} /></span>;
+      return <span ><input type="submit" value={two} id={two} className={"priority"+twos.indexOf(two).toString()} onClick={this.handleDoneTwo} /></span>;
     }.bind(this))
 
     var threes = this.state.three
     var threesList = threes.map(function(three){
-      return <span className={"priority"+threes.indexOf(three).toString()} id={three}><input type="submit" value={three} onClick={this.handleDoneThree} /></span>;
+      return <span ><input type="submit" value={three} id={three} className={"priority"+threes.indexOf(three).toString()} onClick={this.handleDoneThree} /></span>;
     }.bind(this))
 
     var fours = this.state.four
     var foursList = fours.map(function(four){
-      return <span className={"priority"+fours.indexOf(four).toString()} id={four}><input type="submit" value={four} onClick={this.handleDoneFour} /></span>;
+      return <span ><input type="submit" value={four} id={four} className={"priority"+fours.indexOf(four).toString()} onClick={this.handleDoneFour} /></span>;
     }.bind(this))
 
     var fives = this.state.five
     var fivesList = fives.map(function(five){
-      return <span className={"priority"+fives.indexOf(five).toString()} id={five}><input type="submit" value={five}  onClick={this.handleDoneFive} /></span>;
+      return <span  ><input type="submit" value={five} id={five} className={"priority"+fives.indexOf(five).toString()} onClick={this.handleDoneFive} /></span>;
     }.bind(this))
 
 
@@ -156,7 +156,7 @@ export default React.createClass({
 
 
       <div className="Build">
-      <input type="Submit" value="Build" onClick = {this.handleChange} />
+      <input type="Submit" value="Build" className="regular" onClick = {this.handleChange} />
         <div className="Ones">
           <p>{onesList}</p>
         </div>        
