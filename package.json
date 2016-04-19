@@ -7,7 +7,6 @@
     "dev:watch": "watchify src/index.js -o public/bundle.js -dv -t babelify",
     "dev:livereload": "wtch -d public | garnish --level debug",
     "dev:serve": "node-dev server.js",
-    "start": "node server.js",
     "dev": "NODE_ENV=development npm-run-all -p dev:*"
   },
   "babel": {
