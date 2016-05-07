@@ -19,9 +19,9 @@ export default React.createClass({
 
   handleInfo: function () {
     if (this.state.info == "") {
-      this.setState({itemsList: "Triangulr is a to-do list prioritisation app. It's designed to ensure that the user's focus is on the most important tasks..."})
+      this.setState({info: "Triangulr is a to-do list prioritisation app. It's designed to ensure that the user's focus is on the most important tasks..."})
     } else {
-      this.setState({itemsList: ""})
+      this.setState({info: ""})
     }
   },
 
