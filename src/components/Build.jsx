@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom'
 import App from './App.jsx'
 import _ from 'lodash';
 
-
 export default React.createClass({
-
 
   getInitialState: function () {
     return {
@@ -15,40 +13,47 @@ export default React.createClass({
       four: [],
       five: []
     }
+  },
 
+  handleChange: function () {
+  this.setState({itemsList: this.props.itemsList})
+  this.buildTriangle()
+  },
+
+  handleDemo: function () {
+  var demoList = [
+    {taskName: "not die", priority: '1'},
+    {taskName:  "breathe", priority: '1'},
+    {taskName:  "drink water", priority: '1'},
+    {taskName:  "photosynthesise", priority: '1'},
+    {taskName:  "keep heart beating", priority:'1' },
+    {taskName: "go to work", priority: '2'},
+    {taskName:  "pay the mortgage", priority: '2'},
+    {taskName:  "cook", priority: '2'},
+    {taskName: "pay bills", priority: '2'},
+    {taskName: "participate in society", priority: '3'},
+    {taskName: "have friends", priority: '3'},
+    {taskName: "find love", priority: '3'},
+    {taskName: "be happy", priority: '4'},
+    {taskName: "be a lobster", priority: '4'},
+    {taskName: "conquer the world", priority: '5'}
+  ]
+  this.setState({itemsList: demoList})
+  this.buildTriangle()
   },
 
 
-
-  handleChange: function () {
+  buildTriangle: function () {
     function shuffleArray (array) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+      for (var i = array.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var temp = array[i];
+          array[i] = array[j];
+          array[j] = temp;
+      }
+      return array;
     }
-    return array;
-}
-    console.log("List Items", this.props.itemsList)
-    // var itemsList = this.props.itemsList
-    var itemsList = [
-      {taskName: "not die", priority: '1'},
-      {taskName:  "breathe", priority: '1'},
-      {taskName:  "drink water", priority: '1'},
-      {taskName:  "photosynthesise", priority: '1'},
-      {taskName:  "keep heart beating", priority:'1' },
-      {taskName: "go to work", priority: '2'},
-      {taskName:  "pay the mortgage", priority: '2'},
-      {taskName:  "cook", priority: '2'},
-      {taskName: "pay bills", priority: '2'},
-      {taskName: "participate in society", priority: '3'},
-      {taskName: "have friends", priority: '3'},
-      {taskName: "find love", priority: '3'},
-      {taskName: "be happy", priority: '4'},
-      {taskName: "be a lobster", priority: '4'},
-      {taskName: "conquer the world", priority: '5'}
-    ]
+    var itemsList = this.state.itemsList
     itemsList = shuffleArray(itemsList)
     console.log("itemsList", itemsList)
     var one = _.filter(itemsList, { 'priority': '1'});
@@ -77,7 +82,7 @@ export default React.createClass({
     var ones = this.state.one
     var done = e.target.value
     var index = ones.indexOf(done)
-    ones[index] = "DONE" 
+    ones[index] = "DONE"
     this.setState({one: ones})
 
   },
@@ -86,7 +91,7 @@ export default React.createClass({
     var twos = this.state.two
     var done = e.target.value
     var index = twos.indexOf(done)
-    twos[index] = "DONE" 
+    twos[index] = "DONE"
     this.setState({two: twos})
 
   },
@@ -97,7 +102,7 @@ export default React.createClass({
     var done = e.target.value
     var index = threes.indexOf(done)
         console.log(threes, done, index)
-    threes[index] = "DONE" 
+    threes[index] = "DONE"
     this.setState({three: threes})
 
   },
@@ -108,7 +113,7 @@ export default React.createClass({
     var done = e.target.value
     var index = fours.indexOf(done)
     console.log(fours, done, index)
-    fours[index] = "DONE" 
+    fours[index] = "DONE"
     this.setState({four: fours})
 
   },
@@ -119,7 +124,7 @@ export default React.createClass({
     var done = e.target.value
     console.log(fives, done)
     var index = fives.indexOf(done)
-    fives[index] = "DONE" 
+    fives[index] = "DONE"
     this.setState({five: fives})
 
   },
@@ -156,19 +161,21 @@ export default React.createClass({
 
 
       <div className="Build">
-      <input type="Submit" value="Build" className="regular" onClick = {this.handleChange} />
+        <input type="Submit" value="Build" className="regular" onClick = {this.handleChange} />
+        <input type="Submit" value="Demo" className="regular" onClick = {this.handleDemo} />
+        <input type="Submit" value="Show/Hide Info" className="regular" onClick = {this.handleChange} />
         <div className="Ones">
           <p>{onesList}</p>
-        </div>        
+        </div>
         <div className="Ones">
           <p>{twosList}</p>
-        </div>        
+        </div>
         <div className="Ones">
           <p>{threesList}</p>
-        </div>        
+        </div>
         <div className="Ones">
           <p>{foursList}</p>
-        </div>        
+        </div>
         <div className="Ones">
           <p>{fivesList}</p>
         </div>
@@ -176,6 +183,4 @@ export default React.createClass({
       )
   }
 
-
 })
-
