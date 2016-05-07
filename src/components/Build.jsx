@@ -11,7 +11,17 @@ export default React.createClass({
       two: [],
       three: [],
       four: [],
-      five: []
+      five: [],
+      info: "",
+      itemsList: []
+    }
+  },
+
+  handleInfo: function () {
+    if (this.state.info == "") {
+      this.setState({itemsList: "Triangulr is a to-do list prioritisation app. It's designed to ensure that the user's focus is on the most important tasks..."})
+    } else {
+      this.setState({itemsList: ""})
     }
   },
 
@@ -42,19 +52,20 @@ export default React.createClass({
   this.buildTriangle()
   },
 
+  shuffleArray: function (array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+  },
+
 
   buildTriangle: function () {
-    function shuffleArray (array) {
-      for (var i = array.length - 1; i > 0; i--) {
-          var j = Math.floor(Math.random() * (i + 1));
-          var temp = array[i];
-          array[i] = array[j];
-          array[j] = temp;
-      }
-      return array;
-    }
     var itemsList = this.state.itemsList
-    itemsList = shuffleArray(itemsList)
+    itemsList = this.shuffleArray(itemsList)
     console.log("itemsList", itemsList)
     var one = _.filter(itemsList, { 'priority': '1'});
     var two = _.filter(itemsList, { 'priority': '2'});
@@ -163,7 +174,10 @@ export default React.createClass({
       <div className="Build">
         <input type="Submit" value="Build" className="regular" onClick = {this.handleChange} />
         <input type="Submit" value="Demo" className="regular" onClick = {this.handleDemo} />
-        <input type="Submit" value="Show/Hide Info" className="regular" onClick = {this.handleChange} />
+        <input type="Submit" value="Show/Hide Info" className="regular" onClick = {this.handleInfo} />
+        <div className="Info">
+          <p>{info}</p>
+        </div>
         <div className="Ones">
           <p>{onesList}</p>
         </div>
