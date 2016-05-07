@@ -19,7 +19,7 @@ export default React.createClass({
 
   handleInfo: function () {
     if (this.state.info == "") {
-      this.setState({info: "Triangulr is a to-do list prioritisation app. It's designed to ensure that the user's focus is on the most important tasks..."})
+      this.setState({info: "Triangulr is a to-do list prioritisation app. It's designed to ensure that the user's focus is on the most important tasks, while also ensuring that those designated lower priority don't get neglected entirely. </p><p>Triangulr is an app I (Andi Buchanan) created when I was first learning React, to get used to using the library. As such, while it is possible to add tasks and use the app in one sitting, it has no data persistence (ie your tasks disappear when you close the browser) so I recommend just using the demo button if you want to have a play. Click on the tasks to mark them as complete."})
     } else {
       this.setState({info: ""})
     }
