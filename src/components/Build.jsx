@@ -62,7 +62,6 @@ export default React.createClass({
     return array;
   },
 
-
   buildTriangle: function () {
     var itemsList = this.state.itemsList
     itemsList = this.shuffleArray(itemsList)
@@ -82,11 +81,7 @@ export default React.createClass({
     rowthree.push(one[2].taskName, two[1].taskName, three[0].taskName)
     rowfour.push(one[3].taskName, two[2].taskName, three[1].taskName, four[0].taskName)
     rowfive.push(one[4].taskName, two[3].taskName, three[2].taskName, four[1].taskName, five[0].taskName)
-
-
     this.setState({one: rowone, two: rowtwo, three: rowthree, four: rowfour, five: rowfive});
-    console.log("one", one)
-    console.log("rowfive", rowfive)
   },
 
   handleDoneOne: function (e) {
@@ -95,7 +90,6 @@ export default React.createClass({
     var index = ones.indexOf(done)
     ones[index] = "DONE"
     this.setState({one: ones})
-
   },
 
   handleDoneTwo: function (e) {
@@ -104,31 +98,23 @@ export default React.createClass({
     var index = twos.indexOf(done)
     twos[index] = "DONE"
     this.setState({two: twos})
-
   },
-
 
   handleDoneThree: function (e) {
     var threes = this.state.three
     var done = e.target.value
     var index = threes.indexOf(done)
-        console.log(threes, done, index)
     threes[index] = "DONE"
     this.setState({three: threes})
-
   },
-
 
   handleDoneFour: function (e) {
     var fours = this.state.four
     var done = e.target.value
     var index = fours.indexOf(done)
-    console.log(fours, done, index)
     fours[index] = "DONE"
     this.setState({four: fours})
-
   },
-
 
   handleDoneFive: function (e) {
     var fives = this.state.five
@@ -137,10 +123,7 @@ export default React.createClass({
     var index = fives.indexOf(done)
     fives[index] = "DONE"
     this.setState({five: fives})
-
   },
-
-
 
   render: function () {
     var ones = this.state.one
@@ -151,26 +134,21 @@ export default React.createClass({
     var twosList = twos.map(function(two){
       return <span ><input type="submit" value={two} id={two} className={"priority"+twos.indexOf(two).toString()} onClick={this.handleDoneTwo} /></span>;
     }.bind(this))
-
     var threes = this.state.three
     var threesList = threes.map(function(three){
       return <span ><input type="submit" value={three} id={three} className={"priority"+threes.indexOf(three).toString()} onClick={this.handleDoneThree} /></span>;
     }.bind(this))
-
     var fours = this.state.four
     var foursList = fours.map(function(four){
       return <span ><input type="submit" value={four} id={four} className={"priority"+fours.indexOf(four).toString()} onClick={this.handleDoneFour} /></span>;
     }.bind(this))
-
     var fives = this.state.five
     var fivesList = fives.map(function(five){
       return <span  ><input type="submit" value={five} id={five} className={"priority"+fives.indexOf(five).toString()} onClick={this.handleDoneFive} /></span>;
     }.bind(this))
-
+    var info = this.state.info
 
     return (
-
-
       <div className="Build">
         <input type="Submit" value="Build" className="regular" onClick = {this.handleChange} />
         <input type="Submit" value="Demo" className="regular" onClick = {this.handleDemo} />
@@ -196,5 +174,4 @@ export default React.createClass({
       </div>
       )
   }
-
 })
