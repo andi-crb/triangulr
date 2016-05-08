@@ -26,30 +26,30 @@ export default React.createClass({
   },
 
   handleChange: function () {
-  this.setState({itemsList: this.props.itemsList})
-  this.buildTriangle()
+    this.setState({itemsList: this.props.itemsList})
+    this.buildTriangle()
   },
 
   handleDemo: function () {
-  var demoList = [
-    {taskName: "not die", priority: '1'},
-    {taskName:  "breathe", priority: '1'},
-    {taskName:  "drink water", priority: '1'},
-    {taskName:  "photosynthesise", priority: '1'},
-    {taskName:  "keep heart beating", priority:'1' },
-    {taskName: "go to work", priority: '2'},
-    {taskName:  "pay the mortgage", priority: '2'},
-    {taskName:  "cook", priority: '2'},
-    {taskName: "pay bills", priority: '2'},
-    {taskName: "participate in society", priority: '3'},
-    {taskName: "have friends", priority: '3'},
-    {taskName: "find love", priority: '3'},
-    {taskName: "be happy", priority: '4'},
-    {taskName: "be a lobster", priority: '4'},
-    {taskName: "conquer the world", priority: '5'}
-  ]
-  this.setState({itemsList: demoList})
-  this.buildTriangle()
+    var demoList = [
+      {taskName: "not die", priority: '1'},
+      {taskName:  "breathe", priority: '1'},
+      {taskName:  "drink water", priority: '1'},
+      {taskName:  "photosynthesise", priority: '1'},
+      {taskName:  "keep heart beating", priority:'1' },
+      {taskName: "go to work", priority: '2'},
+      {taskName:  "pay the mortgage", priority: '2'},
+      {taskName:  "cook", priority: '2'},
+      {taskName: "pay bills", priority: '2'},
+      {taskName: "participate in society", priority: '3'},
+      {taskName: "have friends", priority: '3'},
+      {taskName: "find love", priority: '3'},
+      {taskName: "be happy", priority: '4'},
+      {taskName: "be a lobster", priority: '4'},
+      {taskName: "conquer the world", priority: '5'}
+    ]
+    this.setState({itemsList: demoList})
+    this.buildTriangle()
   },
 
   shuffleArray: function (array) {
@@ -93,11 +93,16 @@ export default React.createClass({
   },
 
   handleDoneTwo: function (e) {
-    var twos = this.state.two
-    var done = e.target.value
-    var index = twos.indexOf(done)
-    twos[index] = "DONE"
-    this.setState({two: twos})
+    var ones = this.state.one
+    if (ones[0] == "DONE") {
+      var twos = this.state.two
+      var done = e.target.value
+      var index = twos.indexOf(done)
+      twos[index] = "DONE"
+      this.setState({two: twos})
+    } else {
+      alert("Sorry, you must complete the tasks above this one first.")
+    }
   },
 
   handleDoneThree: function (e) {
