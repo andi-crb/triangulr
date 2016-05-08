@@ -6,7 +6,7 @@ h1 {
   text-align: center;
 }
 
-input[type=submit].regular, 
+input[type=submit].regular,
 input[type=text] {
   display: inline-block;
   height: 38px;
@@ -155,3 +155,6 @@ input[type=text] {
   margin-bottom: 1rem;
 }
 
+.Info {
+  text-align: left;
+}
