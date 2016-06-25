@@ -106,29 +106,44 @@ export default React.createClass({
   },
 
   handleDoneThree: function (e) {
+    var twos = this.state.two
     var threes = this.state.three
     var done = e.target.value
     var index = threes.indexOf(done)
     if ((index == 0 && twos[0] == "DONE") || (index == 1 && twos[0] == "DONE" && twos[1] == "DONE") || (index == 1 && twos[1] == "DONE")) {
       threes[index] = "DONE"
     }
+    else {
+      alert("Sorry, you must complete the tasks above this one first.")
+    }
     this.setState({three: threes})
   },
 
   handleDoneFour: function (e) {
+    var threes = this.state.three
     var fours = this.state.four
     var done = e.target.value
     var index = fours.indexOf(done)
-    fours[index] = "DONE"
+    if ((index == 0 && threes[0] == "DONE") || (index == 1 && threes[0] == "DONE" && threes[1] == "DONE") || (index == 2 && threes[1] == "DONE" && threes[2] == "DONE") || (index == 3 && threes[2] == "DONE")) {
+      fours[index] = "DONE"
+    }
+    else {
+      alert("Sorry, you must complete the tasks above this one first.")
+    }
     this.setState({four: fours})
   },
 
   handleDoneFive: function (e) {
+      var fours = this.state.four
     var fives = this.state.five
     var done = e.target.value
-    console.log(fives, done)
     var index = fives.indexOf(done)
-    fives[index] = "DONE"
+    if ((index == 0 && fours[0] == "DONE") || (index == 1 && fours[0] == "DONE" && fours[1] == "DONE") || (index == 2 && fours[1] == "DONE" && fours[2] == "DONE") || (index == 3 && fours[2] == "DONE" && fours[3] == "DONE") || (index == 4 && fours[3] == "DONE")) {
+      fours[index] = "DONE"
+    }
+    else {
+      alert("Sorry, you must complete the tasks above this one first.")
+    }
     this.setState({five: fives})
   },
 
