@@ -109,7 +109,9 @@ export default React.createClass({
     var threes = this.state.three
     var done = e.target.value
     var index = threes.indexOf(done)
-    threes[index] = "DONE"
+    if ((index == 0 && twos[0] == "DONE") || (index == 1 && twos[0] == "DONE" && twos[1] == "DONE") || (index == 1 && twos[1] == "DONE")) {
+      threes[index] = "DONE"
+    }
     this.setState({three: threes})
   },
 
