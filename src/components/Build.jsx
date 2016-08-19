@@ -32,21 +32,21 @@ export default React.createClass({
 
   handleDemo: function () {
     var demoList = [
-      {taskName: "not die", priority: '1'},
-      {taskName:  "breathe", priority: '1'},
-      {taskName:  "drink water", priority: '1'},
-      {taskName:  "photosynthesise", priority: '1'},
-      {taskName:  "keep heart beating", priority:'1' },
-      {taskName: "go to work", priority: '2'},
-      {taskName:  "pay the mortgage", priority: '2'},
-      {taskName:  "cook", priority: '2'},
-      {taskName: "pay bills", priority: '2'},
-      {taskName: "participate in society", priority: '3'},
-      {taskName: "have friends", priority: '3'},
-      {taskName: "find love", priority: '3'},
-      {taskName: "be happy", priority: '4'},
-      {taskName: "be a lobster", priority: '4'},
-      {taskName: "conquer the world", priority: '5'}
+      {taskName: "get prescription", priority: '1'},
+      {taskName:  "put out fire", priority: '1'},
+      {taskName:  "make dinner", priority: '1'},
+      {taskName:  "pay bills", priority: '1'},
+      {taskName:  "buy train pass", priority:'1' },
+      {taskName:  "complete assignment", priority: '2'},
+      {taskName:  "apply for job", priority: '2'},
+      {taskName:  "clean kitchen", priority: '2'},
+      {taskName:  "book appointment", priority: '2'},
+      {taskName:  "book holiday", priority: '3'},
+      {taskName:  "set up savings account", priority: '3'},
+      {taskName:  "confirm coffee date", priority: '3'},
+      {taskName:  "reorganise room", priority: '4'},
+      {taskName:  "paint walls", priority: '4'},
+      {taskName:  "make long term career plan", priority: '5'}
     ]
     this.setState({itemsList: demoList})
     this.buildTriangle()
