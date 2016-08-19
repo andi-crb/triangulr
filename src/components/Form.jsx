@@ -38,11 +38,14 @@ export default React.createClass({
   },
 
   render: function () {
-    var itemsForExport = this.state.toDoItems   
+    var itemsForExport = this.state.toDoItems
     return (
 
       <div className="Form">
+          <h2>Add a Task</h2>
+          <p>Task</p>
           <input type="text" onChange = {this.handleChange} /><br />
+          <p>Priority</p>
           <input type="text" onChange = {this.handlePriority} /><br />
           <input type="Submit" className="regular"  onClick = {this.handleSubmit} /><br />
       </div>
@@ -51,4 +54,3 @@ export default React.createClass({
 
 
 })
-

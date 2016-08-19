@@ -2,6 +2,10 @@ h1 {
   text-align: center;
 }
 
+div {
+  padding: 25px;
+}
+
 .Build {
   text-align: center;
 }
