@@ -46,7 +46,7 @@ export default React.createClass({
       {taskName:  "confirm coffee date", priority: '3'},
       {taskName:  "reorganise room", priority: '4'},
       {taskName:  "paint walls", priority: '4'},
-      {taskName:  "make long term career plan", priority: '5'}
+      {taskName:  "make long term plan", priority: '5'}
     ]
     this.setState({itemsList: demoList})
     this.buildTriangle()
@@ -110,7 +110,7 @@ export default React.createClass({
     var threes = this.state.three
     var done = e.target.value
     var index = threes.indexOf(done)
-    if ((index == 0 && twos[0] == "DONE") || (index == 1 && twos[0] == "DONE" && twos[1] == "DONE") || (index == 1 && twos[1] == "DONE")) {
+    if ((index == 0 && twos[0] == "DONE") || (index == 1 && twos[0] == "DONE" && twos[1] == "DONE") || (index == 2 && twos[1] == "DONE")) {
       threes[index] = "DONE"
     }
     else {
