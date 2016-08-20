@@ -139,7 +139,7 @@ export default React.createClass({
     var done = e.target.value
     var index = fives.indexOf(done)
     if ((index == 0 && fours[0] == "DONE") || (index == 1 && fours[0] == "DONE" && fours[1] == "DONE") || (index == 2 && fours[1] == "DONE" && fours[2] == "DONE") || (index == 3 && fours[2] == "DONE" && fours[3] == "DONE") || (index == 4 && fours[3] == "DONE")) {
-      fours[index] = "DONE"
+      fives[index] = "DONE"
     }
     else {
       alert("Sorry, you must complete the tasks above this one first.")
